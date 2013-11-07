@@ -19,3 +19,8 @@ design_skills.each do |skill|
 end
 
 # TODO: create associations between users and skills
+count = 1
+5.times do
+  Proficiency.create :user_id => count, :skill_id => count, :years => count, :formal => true
+  count += 1
+end

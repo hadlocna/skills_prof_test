@@ -1,0 +1,16 @@
+<div class= "container">
+  <% user = User.find(session[:id]) %>
+<h1> Welcome <%=user.name%> Profile Page </h1>
+<h2> Select your skills below </h2>
+
+<h4> Skillz </h4>
+<form name="user_input" action="/profile/new" method = "get">
+<% skills = Skill.all %>
+<% skills.each do |skill| %>
+<input type="radio" name="<%=skill.id%>" value="<%=skill.name%>"> <%=skill.name%>
+<br>
+<%end%>
+<input type="submit" value="Submit">
+</form>
+
+</div>

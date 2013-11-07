@@ -6,6 +6,19 @@ get '/' do
 end
 
 #----------- SESSIONS -----------
+get '/profile/new' do
+  skills = Skill.all
+
+  params.each do |input|
+    p "-----this is the params=-----"
+    p input[0]
+    p input[1]
+    Proficiency.create(user_id: session[:id], skill_id: input[0].to_i)
+
+  end
+
+  erb :index
+end
 
 get '/sessions/new' do
   # render sign-in page
@@ -43,6 +56,13 @@ get '/users/new' do
   @user = User.new
   erb :sign_up
 end
+
+
+get '/profile/:id' do
+  @user_id = params[:id]
+  erb :profile
+end
+
 
 post '/users' do
   # sign-up

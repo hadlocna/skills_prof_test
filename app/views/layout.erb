@@ -18,6 +18,7 @@
     <ul>
       <% if current_user %>
         <li><a id="sign-out" href="/sessions/<%= current_user.id %>">Sign Out</a></li>
+        <li><a id="profile" href="/profile/<%= current_user.id %>">Profile Page</a></li>
       <% else %>
         <li><a href="/sessions/new">Sign In</a></li>
         <li><a href="/users/new">Sign Up</a></li>
